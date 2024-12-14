@@ -28,7 +28,9 @@ public class GameManager : Singleton<GameManager>
 
     private void EndGame()
     {
-        Debug.Log("Você coletou todas as moedas! Fim de jogo!");
-        // Adicione lógica de finalização, como carregar outra cena ou mostrar uma tela de vitória
+        if (SceneLoader.Instance.CurrentScene == 0)
+            SceneLoader.Instance.LoadLevel(1);
+        else
+            SceneLoader.Instance.LoadLevel(0);
     }
 }
